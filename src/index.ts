@@ -1,5 +1,5 @@
 import { WebSocketServer } from 'ws';
-import { command } from './app/constants';
+import { handleMessage } from './app/messageHandler';
 
 const wss = new WebSocketServer({
   port: 8080,
@@ -16,7 +16,10 @@ wss.on('connection', (ws, req) => {
   );
 
   ws.on('message', (data) => {
-    const [message] = data.toString().split(' ');
-    console.log('command = ', message);
+    try {
+      handleMessage(data);
+    } catch (err: any) {
+      console.log(err.message)
+    }
   });
 });
