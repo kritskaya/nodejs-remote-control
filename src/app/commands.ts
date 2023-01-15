@@ -1,24 +1,29 @@
-import { mouseUp } from './operations/mouse';
+import { getMousePosition, mouseDown, mouseLeft, mouseRight, mouseUp } from './operations/mouse';
 
 export const commands = [
   {
     name: 'mouse_up',
     argsAmount: 1,
-    method: mouseUp,
+    exec: mouseUp,
   },
   {
     name: 'mouse_down',
     argsAmount: 1,
-    method: mouseUp,
+    exec: mouseDown,
   },
   {
     name: 'mouse_left',
     argsAmount: 1,
-    method: mouseUp,
+    exec: mouseLeft,
   },
   {
     name: 'mouse_right',
+    argsAmount: 1,
+    exec: mouseRight,
+  },
+  {
+    name: 'mouse_position',
     argsAmount: 0,
-    method: mouseUp,
+    exec: getMousePosition,
   },
 ];

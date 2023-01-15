@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kritskaya/nodejs-remote-control#readme",
   "dependencies": {
+    "@nut-tree/nut-js": "^2.3.0",
     "dotenv": "^16.0.3",
     "ws": "^8.12.0"
   },

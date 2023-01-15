@@ -15,11 +15,14 @@ wss.on('connection', (ws, req) => {
     req.socket.remotePort
   );
 
-  ws.on('message', (data) => {
+  ws.on('message', async (data) => {
     try {
-      handleMessage(data);
+      const dataToSend = await handleMessage(data);
+      if (dataToSend) {
+        ws.send(dataToSend);
+      }
     } catch (err: any) {
-      console.log(err.message)
+      console.log(err.message);
     }
   });
 });
