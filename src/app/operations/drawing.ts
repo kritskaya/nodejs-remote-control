@@ -54,7 +54,6 @@ export const circle = async ([commandName, px]: string[]) => {
     dy = Math.round(Math.sin(angle * TO_RAD) * radius * 10) / 10;
 
     await mouse.move(straightTo(new Point(x + dx, y + dy)));
-    console.log(angle, x, y);
   }
 
   await mouse.releaseButton(Button.LEFT);

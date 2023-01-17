@@ -1,5 +1,6 @@
 import { circle, rectangle, square } from './operations/drawing';
 import { getMousePosition, mouseDown, mouseLeft, mouseRight, mouseUp } from './operations/mouse';
+import { screenshot } from './operations/screenshot';
 
 export const commands = [
   {
@@ -41,5 +42,10 @@ export const commands = [
     name: 'draw_circle',
     argsAmount: 1,
     exec: circle,
+  },
+  {
+    name: 'prnt_scrn',
+    argsAmount: 0,
+    exec: screenshot,
   },
 ];
