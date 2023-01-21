@@ -14,9 +14,7 @@ export const handleMessage = async (data: RawData): Promise<string | void> => {
     throw new Error(ErrorMessage.ARGUMENTS_MISMATCH);
   }
 
-  // console.log('command = ', commandName);
-  let result = await command.exec([command.name ,...args]);
-  // console.log(result);
+  let result = await command.exec([...args]);
 
-  return result;
+  return `${commandName} ${result}`;
 };

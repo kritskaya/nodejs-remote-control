@@ -9,7 +9,7 @@ import {
   Point,
 } from '@nut-tree/nut-js';
 
-export const square = async ([commandName, px]: string[]) => {
+export const square = async ([px]: string[]) => {
   const side = Number(px);
 
   await mouse.pressButton(Button.LEFT);
@@ -18,11 +18,9 @@ export const square = async ([commandName, px]: string[]) => {
   await mouse.move(right(side));
   await mouse.move(up(side));
   await mouse.releaseButton(Button.LEFT);
-
-  return `${commandName}`;
 };
 
-export const rectangle = async ([commandName, xpx, ypx]: string[]) => {
+export const rectangle = async ([xpx, ypx]: string[]) => {
   const side1 = Number(xpx);
   const side2 = Number(ypx);
 
@@ -32,11 +30,9 @@ export const rectangle = async ([commandName, xpx, ypx]: string[]) => {
   await mouse.move(right(side1));
   await mouse.move(up(side2));
   await mouse.releaseButton(Button.LEFT);
-
-  return `${commandName}`;
 };
 
-export const circle = async ([commandName, px]: string[]) => {
+export const circle = async ([px]: string[]) => {
   const radius = Number(px);
   const TO_RAD = 0.0175;
 
@@ -57,6 +53,4 @@ export const circle = async ([commandName, px]: string[]) => {
   }
 
   await mouse.releaseButton(Button.LEFT);
-
-  return `${commandName}`;
 };

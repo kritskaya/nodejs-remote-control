@@ -1,31 +1,27 @@
 import { mouse, up, down, left, right } from '@nut-tree/nut-js';
 
-export const mouseUp = ([commandName, px]: string[]) => {
-  console.log(`mouse is moved up on ${px}px`);
+export const mouseUp = ([px]: string[]) => {
   mouse.move(up(Number(px)));
-  return `${commandName}`;
+  console.log(`mouse is moved up on ${px}px`);
 };
 
-export const mouseDown = ([commandName, px]: string[]) => {
-  console.log(`mouse is moved down on ${px}px`);
+export const mouseDown = ([px]: string[]) => {
   mouse.move(down(Number(px)));
-  return `${commandName}`;
+  console.log(`mouse is moved down on ${px}px`);
 };
 
-export const mouseLeft = ([commandName, px]: string[]) => {
-  console.log(`mouse is moved left on ${px}px`);
+export const mouseLeft = ([px]: string[]) => {
   mouse.move(left(Number(px)));
-  return `${commandName}`;
+  console.log(`mouse is moved left on ${px}px`);
 };
 
-export const mouseRight = ([commandName, px]: string[]) => {
-  console.log(`mouse is moved right on ${px}px`);
+export const mouseRight = ([px]: string[]) => {
   mouse.move(right(Number(px)));
-  return `${commandName}`;
+  console.log(`mouse is moved right on ${px}px`);
 };
 
-export const getMousePosition = async ([commandName]: string[]) => {
+export const getMousePosition = async () => {
   const position = await mouse.getPosition();
   console.log(`mouse position ${position}`);
-  return `${commandName} ${position.x},${position.y}`;
+  return `${position.x},${position.y}`;
 };

@@ -1,7 +1,7 @@
 import { mouse, Region, screen } from '@nut-tree/nut-js';
 import Jimp from 'jimp';
 
-export const screenshot = async ([commandName]: string[]) => {
+export const screenshot = async () => {
   const position = await mouse.getPosition();
 
   const left = position.x - 100;
@@ -22,5 +22,5 @@ export const screenshot = async ([commandName]: string[]) => {
   const buffer = await jimp.getBufferAsync(Jimp.MIME_PNG);
   const base64 = buffer.toString('base64');
 
-  return `${commandName} ${base64}`;
+  return `${base64}`;
 };

@@ -1,5 +1,6 @@
 import { WebSocketServer } from 'ws';
 import { handleMessage } from './app/messageHandler';
+import { sendMessage } from './app/messageSender';
 
 const wss = new WebSocketServer({
   port: 8080,
@@ -19,7 +20,7 @@ wss.on('connection', (ws, req) => {
     try {
       const dataToSend = await handleMessage(data);
       if (dataToSend) {
-        ws.send(dataToSend);
+        sendMessage(ws, dataToSend);
       }
     } catch (err: any) {
       console.log(err.message);
@@ -34,7 +35,5 @@ process.on('SIGINT', () => {
 
   wss.close();
 
-  console.log('server closed')
+  console.log('server closed');
 });
-
-
