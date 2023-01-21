@@ -1,6 +1,6 @@
-import { WebSocketServer } from 'ws';
+import { createWebSocketStream, WebSocketServer } from 'ws';
 import { handleMessage } from './app/messageHandler';
-import { sendMessage } from './app/messageSender';
+import { configureMessage } from './app/messageSender';
 
 const wss = new WebSocketServer({
   port: 8080,
@@ -16,11 +16,15 @@ wss.on('connection', (ws, req) => {
     req.socket.remotePort
   );
 
-  ws.on('message', async (data) => {
+  const duplex = createWebSocketStream(ws, { encoding: 'utf8', decodeStrings: false });
+
+  duplex.on('data', async (data) => {
     try {
       const dataToSend = await handleMessage(data);
       if (dataToSend) {
-        sendMessage(ws, dataToSend);
+        const message = configureMessage(dataToSend);
+        console.log(message);
+        duplex.write(message);
       }
     } catch (err: any) {
       console.log(err.message);

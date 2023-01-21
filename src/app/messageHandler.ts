@@ -16,5 +16,5 @@ export const handleMessage = async (data: RawData): Promise<string | void> => {
 
   let result = await command.exec([...args]);
 
-  return `${commandName} ${result}`;
+  return `${commandName}${result !== undefined ? ' ' + result : ''}`;
 };
