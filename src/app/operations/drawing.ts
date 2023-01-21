@@ -14,8 +14,17 @@ export const square = async ([px]: string[]) => {
 
   await mouse.pressButton(Button.LEFT);
   await mouse.move(left(side));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(down(side));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(right(side));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(up(side));
   await mouse.releaseButton(Button.LEFT);
 };
@@ -26,8 +35,17 @@ export const rectangle = async ([xpx, ypx]: string[]) => {
 
   await mouse.pressButton(Button.LEFT);
   await mouse.move(left(side1));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(down(side2));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(right(side1));
+  await mouse.releaseButton(Button.LEFT);
+
+  await mouse.pressButton(Button.LEFT);
   await mouse.move(up(side2));
   await mouse.releaseButton(Button.LEFT);
 };
