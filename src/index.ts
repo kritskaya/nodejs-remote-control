@@ -26,3 +26,15 @@ wss.on('connection', (ws, req) => {
     }
   });
 });
+
+process.on('SIGINT', () => {
+  wss.clients.forEach((socket) => {
+    socket.close();
+  });
+
+  wss.close();
+
+  console.log('server closed')
+});
+
+
