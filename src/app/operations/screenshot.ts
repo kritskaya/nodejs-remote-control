@@ -24,5 +24,5 @@ export const screenshot = async () => {
 
   console.log(`screenshot is made on position ${region}`);
 
-  return `${base64}`;
+  return base64;
 };

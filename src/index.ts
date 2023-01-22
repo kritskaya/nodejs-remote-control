@@ -1,9 +1,13 @@
 import { createWebSocketStream, WebSocketServer } from 'ws';
 import { handleMessage } from './app/messageHandler';
 import { configureMessage } from './app/messageSender';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
+const PORT = Number(process.env.PORT) || 8080;
 
 const wss = new WebSocketServer({
-  port: 8080,
+  port: PORT,
 });
 
 console.log(`Web Socket Server started on port ${wss.options.port}`);
