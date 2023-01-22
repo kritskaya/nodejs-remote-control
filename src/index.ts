@@ -23,7 +23,6 @@ wss.on('connection', (ws, req) => {
       const dataToSend = await handleMessage(data);
       if (dataToSend) {
         const message = configureMessage(dataToSend);
-        console.log(message);
         duplex.write(message);
       }
     } catch (err: any) {

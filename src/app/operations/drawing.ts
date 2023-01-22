@@ -27,6 +27,8 @@ export const square = async ([px]: string[]) => {
   await mouse.pressButton(Button.LEFT);
   await mouse.move(up(side));
   await mouse.releaseButton(Button.LEFT);
+
+  console.log(`square with side ${side} is drawn`);
 };
 
 export const rectangle = async ([xpx, ypx]: string[]) => {
@@ -48,6 +50,8 @@ export const rectangle = async ([xpx, ypx]: string[]) => {
   await mouse.pressButton(Button.LEFT);
   await mouse.move(up(side2));
   await mouse.releaseButton(Button.LEFT);
+
+  console.log(`rectangle ${side1}x${side2} is drawn`);
 };
 
 export const circle = async ([px]: string[]) => {
@@ -71,4 +75,6 @@ export const circle = async ([px]: string[]) => {
   }
 
   await mouse.releaseButton(Button.LEFT);
+
+  console.log(`circle with radius ${radius} is drawn`);
 };

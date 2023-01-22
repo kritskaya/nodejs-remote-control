@@ -22,5 +22,7 @@ export const screenshot = async () => {
   const buffer = await jimp.getBufferAsync(Jimp.MIME_PNG);
   const base64 = buffer.toString('base64');
 
+  console.log(`screenshot is made on position ${region}`);
+
   return `${base64}`;
 };
